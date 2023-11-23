@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import logo from '../assets/react.svg'
 import './login.css'
 import bgImg from '../assets/pexels-dids-2983226.jpg'
 import { useState } from "react";
