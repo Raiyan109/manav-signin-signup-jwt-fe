@@ -1,79 +1,65 @@
 import { Link } from "react-router-dom";
 import logo from '../assets/react.svg'
+import './login.css'
+import bgImg from '../assets/pexels-dids-2983226.jpg'
+import { useState } from "react";
 
 const Login = () => {
-    const handleSubmit = () => {
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
 
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        console.log(email, password);
     }
     return (
-        <>
-            <div className="relative py-16 bg-gradient-to-br from-sky-50 to-gray-200">
-                <div className="relative container m-auto px-6 text-gray-500 md:px-12 xl:px-40">
-                    <div className="m-auto md:w-8/12 lg:w-6/12 xl:w-6/12">
-                        <div className="rounded-xl bg-white shadow-xl">
-                            <div className="p-6 sm:p-16">
-                                <div className="space-y-4">
-                                    <img src={logo} loading="lazy" className="w-10" alt="logo" />
-                                    <h2 className="mb-8 text-2xl text-cyan-900 font-bold">Login to unlock the <br /> best of Dream Colleges.</h2>
+        <div className="">
+            <div className="grid grid-cols-3 grid-rows-1">
+                <div className="col-span-3 md:col-span-1 h-screen">
+                    <div className="flex justify-center items-center flex-col pt-12 px-5">
+                        <h1 className="text-blackText text-3xl text-center py-4 font-bold">Sign in for free</h1>
+                        <p className="text-gray-400 text-lg text-center py-4">Remember everything in one place</p>
+
+                        <form onSubmit={handleSubmit}>
+                            <div className="space-y-8">
+                                <div className="relative">
+                                    <input
+                                        className="h-[40px] border-none outline-none text-xl px-5 bg-yellow text-blackText placeholder-blackText placeholder-opacity-60 rounded-lg"
+                                        placeholder="Email"
+                                        type="email"
+                                        value={email}
+                                        onChange={(e) => setEmail(e.target.value)}
+                                    />
                                 </div>
-                                <form onSubmit={handleSubmit}>
-                                    <div className="mt-16 grid space-y-4">
-                                        <label className="font-semibold text-xs" >Username or Email</label>
-                                        <input
 
-                                            className="flex items-center group h-12 px-6 border-2 border-gray-300 rounded-full transition duration-300 hover:border-blue-400 focus:bg-blue-50 active:bg-blue-100" type="email" />
+                                <div className="relative">
+                                    <input
+                                        className="h-[40px] border-none outline-none text-xl px-5 bg-yellow text-blackText placeholder-blackText placeholder-opacity-60 rounded-lg"
+                                        placeholder="Password"
+                                        type="password"
+                                        value={password}
+                                        onChange={(e) => setPassword(e.target.value)}
+                                    />
+                                </div>
 
-                                        <div className="relative w-full">
-                                            <div className="absolute inset-y-0 right-1 flex items-center px-2 top-6 text-2xl cursor-pointer">
-                                                {/* Show password icon */}
-                                                {/* <div onClick={togglePassword}>
-                                                    {showPassword ? (<AiFillEyeInvisible />) : (<AiFillEye />)}
-                                                </div> */}
-                                            </div>
-                                            <label className="font-semibold text-xs mt-3" >Password</label>
-                                            <input
-
-                                                className=" group w-full py-3 px-3 border-2 border-gray-300 rounded-full transition duration-300 hover:border-blue-400 focus:bg-blue-50 active:bg-blue-100"
-                                            // type={showPassword ? "text" : "password"} 
-                                            />
-                                        </div>
-
-
-                                        <input className='flex items-center justify-center group h-12 px-6 border-2 border-gray-300 rounded-full transition duration-300  hover:text-black text-white font-semibold bg-gray-800 hover:bg-gray-300 cursor-pointer' type="submit" value="Login" />
-
-                                        <p>Or use any of these...</p>
-
-                                        <button
-                                            className="group h-12 px-6 border-2 border-gray-300 rounded-full transition duration-300 hover:border-blue-400 focus:bg-blue-50 active:bg-blue-100">
-
-                                            <div className="relative flex items-center space-x-4 justify-center">
-                                                <img src="https://tailus.io/sources/blocks/social/preview/images/google.svg" className="absolute left-0 w-5" alt="google logo" />
-                                                <span className="block w-max font-semibold tracking-wide text-gray-700 text-sm transition duration-300 group-hover:text-blue-600 sm:text-base">Continue with Google</span>
-                                            </div>
-                                        </button>
-
-                                        <button
-                                            className="group h-12 px-6 border-2 border-gray-300 rounded-full transition duration-300 
-                                     hover:border-blue-400 focus:bg-blue-50 active:bg-blue-100">
-                                            <div className="relative flex items-center space-x-4 justify-center">
-                                                <img src="https://upload.wikimedia.org/wikipedia/en/0/04/Facebook_f_logo_%282021%29.svg" className="absolute left-0 w-5" alt="Facebook logo" />
-                                                <span className="block w-max font-semibold tracking-wide text-gray-700 text-sm transition duration-300 group-hover:text-blue-600 sm:text-base">Continue with Facebook</span>
-                                            </div>
-                                        </button>
-                                    </div>
-                                </form>
-
-                                <p className='mt-6 font-semibold'>New to Dream Colleges?
-                                    <Link className='text-blue-500 ml-3' to={'/signUp'}>Sign up</Link>
-                                </p>
-                                <p className='py-6 '>Forgotten Password?
-                                    <Link className='text-blue-500 ml-3' to={'/forgot-password'}>Reset password</Link></p>
+                                <div className="flex justify-center items-center">
+                                    <button className="bg-orange px-9 py-3 text-xl rounded-lg w-full">Sign in</button>
+                                </div>
                             </div>
+                        </form>
+
+                        <div className="mt-56">
+                            <h3 className="text-blackText text-lg font-normal">New to our site? go to
+                                <Link to='/signUp' className="text-orange font-semibold"> Sign up</Link>
+                            </h3>
                         </div>
                     </div>
                 </div>
+                <div className="bg-green-200 col-span-2 h-screen w-full object-cover hidden md:block" style={{ backgroundImage: `url(${bgImg})` }}>
+                    rightside
+                </div>
             </div>
-        </>
+        </div>
     );
 };
 

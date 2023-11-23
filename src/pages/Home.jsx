@@ -1,10 +1,9 @@
-import Navbar from '../components/Navbar';
+import Login from "./Login";
 
 const Home = () => {
     return (
-        <div>
-            <Navbar />
-            kjkj
+        <div className="">
+            <Login />
         </div>
     );
 };

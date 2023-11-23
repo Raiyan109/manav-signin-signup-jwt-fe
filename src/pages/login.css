@@ -1,0 +1,9 @@
+.container {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: 1fr;
+    gap: 0px 0px;
+    grid-template-areas:
+        ". .";
+    width: 100%;
+}
