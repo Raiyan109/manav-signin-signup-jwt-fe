@@ -1,15 +1,25 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import bgImg from '../assets/pexels-dids-2983226.jpg'
+import axios from 'axios';
 
 const SignUp = () => {
     const [name, setName] = useState('')
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
+    const navigate = useNavigate()
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault()
-        console.log(email, password);
+        const { data } = await axios.post('http://localhost:5000/api/users/signup', {
+            name,
+            email,
+            password
+        })
+        localStorage.setItem('userId', data.data.userId)
+        navigate('/login')
+        console.log(data.userId);
+        return data
     }
     return (
         <div className="">
